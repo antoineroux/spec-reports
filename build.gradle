@@ -3,17 +3,12 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'maven'
 
-buildscript {
-    def githubBase = 'https://github.com/valkolovos/gradle_cobertura/raw/master/ivy'
-    apply from: "${githubBase}/gradle_cobertura/gradle_cobertura/1.0-rc4/coberturainit.gradle"
-}
-
-version = "0.1.0."
+version = "0.1.0"
 group = ""
 
 
 repositories {
-    mavenCentral()  // Define Maven central repository to look for dependencies.
+    mavenCentral()  
 }
 
 
@@ -22,13 +17,13 @@ configurations {
 }
 
 dependencies {
-    groovy 'org.codehaus.groovy:groovy-all:1.8.1' 
-    
-    compile fileTree(dir: 'lib', include: '*.jar') 
-    
+    groovy 'org.codehaus.groovy:groovy-all:1.7.5' 
+        
+    compile "org.spockframework:spock-core:0.5-groovy-1.7", {
+        transitive = false
+    }
     
     // For testing
-    testCompile "org.spockframework:spock-core:0.5-groovy-1.8"  
     testCompile "org.hamcrest:hamcrest-core:1.2" // Hamcrest matchers
     testRuntime "cglib:cglib-nodep:2.2"     // enables mocking of classes (in addition to interfaces)
     testRuntime "org.objenesis:objenesis:1.2" // enables mocking of classes without default constructor (together with CGLIB)  
@@ -40,6 +35,13 @@ dependencies {
     deployment 'org.apache.maven.wagon:wagon-http:1.0-beta-2'
 }
 
+
+
+task "create-dirs" << {
+   sourceSets.all*.java.srcDirs*.each { it.mkdirs() }
+   sourceSets.all*.groovy.srcDirs*.each { it.mkdirs() }
+   sourceSets.all*.resources.srcDirs*.each { it.mkdirs() }
+}
 
 
 /**

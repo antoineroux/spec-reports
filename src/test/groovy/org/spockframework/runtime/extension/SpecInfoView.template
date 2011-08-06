@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>${specInfo.name}</title>
+    <link href="layout.css" rel="stylesheet" />
+</head>
+
+<body>
+<div class="spec">
+    <h1 class="spec-name">${specName}</h1>
+    <div class="feature">
+        <% specInfo.allFeatures.each { feature -> %>
+            <h2 class="feature-name">${feature.name}</h2>
+            <% feature.blocks.each { block -> %>
+                <p class="block">
+                    <span class="block-name">${labels[block.kind]}</span>
+                    ${block.texts[0]}
+                </p>
+            <% } %>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
