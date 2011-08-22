@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Specifications</title>
+    <link href="layout.css" rel="stylesheet" />
+</head>
+
+<body>
+    <frameset cols="30%,70%">
+        <frame src="menu.html" name="menu-frame" title="Specifications"></frame>
+        <frame src="menu.html" name="spec-frame" title="Detailed view"></frame>
+        <noframes>
+This page was designed to be viewed with a browser that supports frames. If you
+see this message, you are using a browser that does not support this feature.
+        </noframes>
+    </frameset>
+    
+    <iframe src="menu.html" name="menu"></iframe>
+    <iframe src="menu.html" name="specs"></iframe>
+</body>

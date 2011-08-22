@@ -633,3 +633,20 @@
         font-weight: normal;
         font-style: normal; }
 */
+
+
+/* #Frames
+================================================== */
+
+iframe {
+	border: 0;
+	float: left;
+}
+[name=menu] {
+	width: 30%;
+}
+
+[name=specs] {
+    width: 69%;	
+    height: 100%;
+}

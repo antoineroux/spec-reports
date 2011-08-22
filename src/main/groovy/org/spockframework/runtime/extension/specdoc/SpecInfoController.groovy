@@ -1,4 +1,4 @@
-package org.spockframework.runtime.extension
+package org.spockframework.runtime.extension.specdoc
 
 import groovy.text.GStringTemplateEngine
 import groovy.text.SimpleTemplateEngine
@@ -10,7 +10,7 @@ import org.spockframework.runtime.model.SpecInfo;
  * @author antoine
  *
  */
-class SpecInfoController {
+class SpecInfoController extends BaseController {
 
     SpecInfo specInfo
     
@@ -26,11 +26,6 @@ class SpecInfoController {
         (BlockKind.CLEANUP): ""
     ]
     
-    private static specSuffixes = [
-        "Spec", "Specs",
-        "Specification", "Specifications",
-        "Test", "Tests"
-    ]
     
     
     /**
@@ -49,32 +44,5 @@ class SpecInfoController {
         return engine.createTemplate(tmpl).make(binding)
     }
     
-    
-    /**
-     * Formats a class name of a specification to something "human-readable".
-     * For instance: "XMLParserSpec" -> "XML Parser".
-     * 
-     * @param specName  Name of the class.
-     * @return  the human readable name.
-     */
-    private String formatSpecName(String specName) {
-        for (String suffix: specSuffixes) {
-            if (specName.endsWith(suffix)) {
-                def truncatedName = specName[0..(specName.size() - suffix.size()) - 1]
-                return splitCamelCase(truncatedName)
-            }
-        }
-    }
-    
-    private String splitCamelCase(String s) {
-        return s.replaceAll(
-            String.format("%s|%s|%s",
-                "(?<=[A-Z])(?=[A-Z][a-z])",
-                "(?<=[^A-Z])(?=[A-Z])",
-                "(?<=[A-Za-z])(?=[^A-Za-z])"
-      ),
-      " "
-   );
-}
     
 }

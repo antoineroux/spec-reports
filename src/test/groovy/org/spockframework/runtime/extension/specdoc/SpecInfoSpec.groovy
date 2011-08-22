@@ -1,4 +1,4 @@
-package org.spockframework.runtime.extension
+package org.spockframework.runtime.extension.specdoc
 
 import spock.lang.Specification
 

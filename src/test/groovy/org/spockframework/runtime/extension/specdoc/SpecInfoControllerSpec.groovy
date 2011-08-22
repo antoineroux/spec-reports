@@ -1,7 +1,8 @@
-package org.spockframework.runtime.extension
+package org.spockframework.runtime.extension.specdoc
 
 import com.sun.corba.se.spi.ior.Writeable
 
+import org.spockframework.runtime.extension.specdoc.SpecInfoController;
 import org.spockframework.runtime.model.BlockInfo;
 import org.spockframework.runtime.model.BlockKind;
 import org.spockframework.runtime.model.FeatureInfo;
