@@ -7,8 +7,8 @@
 <body>
 <div class="spec">
     <h1 class="spec-name">${specName}</h1>
-    <div class="feature">
         <% specInfo.allFeatures.each { feature -> %>
+            <div class="feature">
             <h2 class="feature-name">${feature.name}</h2>
             <% feature.blocks.each { block -> %>
                 <% block.texts.eachWithIndex { text, i -> %>
@@ -22,8 +22,8 @@
                     </p>
                 <% } %>
             <% } %>
+            </div>
         <% } %>
-    </div>
 </div>
 </body>
 </html>

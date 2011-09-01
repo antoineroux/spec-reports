@@ -1,12 +1,14 @@
 <html>
 <header>
-
+        <link href="layout.css" rel="stylesheet" />
 </header>
 <body>
-    <ul>
-        <%specInfos.each { specInfo -> %>
-            <li><a href="<%= specInfo.url %>" target="specs">${specInfo.name}</a></li>
-        <% } %>
-    </ul>
+    <navigation>
+        <ul class="menu">
+            <%specInfos.each { specInfo -> %>
+                <li><a href="<%= specInfo.url %>" target="specs">${specInfo.name}</a></li>
+            <% } %>
+        </ul>
+    </navigation>
 </body>
 </html>

@@ -68,7 +68,6 @@
 ================================================== */
     h1, h2, h3, h4, h5, h6 { 
         color: #181818; 
-        font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
         font-weight: normal; }
     h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
     h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
@@ -637,6 +636,10 @@
 
 /* #Frames
 ================================================== */
+body {
+    background-color: #FFFEF0;
+}
+
 
 iframe {
 	border: 0;
@@ -644,9 +647,57 @@ iframe {
 }
 [name=menu] {
 	width: 30%;
+	height: 100%
 }
 
 [name=specs] {
     width: 69%;	
     height: 100%;
+}
+
+/* Menu
+================================================== */
+.menu {
+margin: 2em 0;
+}
+
+.menu > li {
+    list-style: none;
+}
+
+.menu a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #96A84A;
+}
+
+.menu a:hover {
+    color: #8ED900;
+}
+
+.menu a:selected {
+    font-size: 50px;
+}
+
+/* #Specifcations
+================================================== */
+
+.feature {
+    border: 0.5em solid #FFFFFF;
+    margin: 0.5em 0;
+}
+
+.feature h2 {
+    background: #96A84A;
+    padding: 0.2em;
+    font-size: 2em;
+}
+
+.feature p {
+    padding: 0 0.6em;
+    margin-bottom: 0.2em;
+}
+
+.block-name {
+    font-weight: bold;
 }

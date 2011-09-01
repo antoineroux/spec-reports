@@ -76,6 +76,8 @@ class SpecInfoControllerSpec extends Specification {
         resultAsString =~ "some action is triggered"
         resultAsString =~ "Then"
         resultAsString =~ "some assertions are checked"
+        
+        and: ' "And" is used if there are several texts for the same label'
         resultAsString =~ "And"
         resultAsString =~ "some more assertions are checked"
     }
