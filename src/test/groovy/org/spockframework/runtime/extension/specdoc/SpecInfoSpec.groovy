@@ -10,6 +10,7 @@ class SpecInfoSpec extends Specification {
         given: "something"
         when: "something else"
         then: "youhou"
+        and: "some other condition"
         1 == 1
     }
 }

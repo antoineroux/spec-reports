@@ -36,7 +36,7 @@ class SpecInfoControllerSpec extends Specification {
         def then = new BlockInfo()
         then.with {
             kind = BlockKind.THEN
-            texts = ["some assertions are checked"]
+            texts = ["some assertions are checked", "some more assertions are checked"]
         }
         f1.addBlock given
         f1.addBlock when
@@ -76,5 +76,7 @@ class SpecInfoControllerSpec extends Specification {
         resultAsString =~ "some action is triggered"
         resultAsString =~ "Then"
         resultAsString =~ "some assertions are checked"
+        resultAsString =~ "And"
+        resultAsString =~ "some more assertions are checked"
     }
 }
