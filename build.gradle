@@ -35,6 +35,15 @@ dependencies {
     deployment 'org.apache.maven.wagon:wagon-http:1.0-beta-2'
 }
 
+classes << {
+
+    copy(){
+        into relativePath(sourceSets.main.classesDir)
+        from(sourceSets.main.groovy.srcDirs){
+            include('**/*.template')
+        }
+    }
+}  
 
 
 task "create-dirs" << {
