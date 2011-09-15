@@ -658,7 +658,7 @@ iframe {
 /* Menu
 ================================================== */
 .menu {
-margin: 2em 0;
+    margin: 2em 0;
 }
 
 .menu > li {
@@ -682,20 +682,41 @@ margin: 2em 0;
 /* #Specifcations
 ================================================== */
 
+.spec {
+    margin: 2em;
+}
+
+.spec-name {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
 .feature {
-    border: 0.5em solid #FFFFFF;
-    margin: 0.5em 0;
+    margin: 1em 0;
+    padding: 0 0 0.5em;
+    
+    background-color: #EFEFEF;
 }
 
 .feature h2 {
-    background: #96A84A;
+    background-color: #0A9600;
+    color: #FFFFFF;
+    
     padding: 0.2em;
     font-size: 2em;
+    
+    -moz-box-shadow: 5px 0px 8px #888;
+    -webkit-box-shadow: 5px 0px 8px #888;
+    box-shadow: 5px 0px 8px #888;
+    
+     border-radius: 5px;
+    -moz-border-radius: 5px;
 }
 
 .feature p {
     padding: 0 0.6em;
     margin-bottom: 0.2em;
+    color: #000000;
 }
 
 .block-name {
