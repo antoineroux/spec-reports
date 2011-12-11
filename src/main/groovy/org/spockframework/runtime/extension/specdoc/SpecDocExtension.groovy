@@ -19,23 +19,28 @@ class SpecDocExtension implements IGlobalExtension {
     static specInfos = []
     
     void visitSpec(SpecInfo specInfo) {
-        if (outputDir && new File(outputDir).isDirectory()) {
-            if (!shutdownHookInstalled) {
-                System.addShutdownHook buildIndex
-                shutdownHookInstalled = true
-            }
+        if (outputDir) {
+            def target = new File(outputDir)
+            if (!target.exists()) target.mkdirs()
             
-            specInfos << specInfo
-            
-            specInfoController.specInfo = specInfo
-            Writable output = specInfoController.render()
-            def fileName = new SpecFormatter().fileNameFor(specInfo.filename)
-            writeFile(outputDir + "/" + fileName + ".html", output)
-            
-            def css = new File(outputDir + "/layout.css")
-            if (!css.exists()) {
-                def layout = this.class.getResourceAsStream("/css/layout.css")
-                css << layout.bytes
+            if (target.isDirectory()) {
+                if (!shutdownHookInstalled) {
+                    System.addShutdownHook buildIndex
+                    shutdownHookInstalled = true
+                }
+                
+                specInfos << specInfo
+                
+                specInfoController.specInfo = specInfo
+                Writable output = specInfoController.render()
+                def fileName = new SpecFormatter().fileNameFor(specInfo.filename)
+                writeFile(outputDir + "/" + fileName + ".html", output)
+                
+                def css = new File(outputDir + "/layout.css")
+                if (!css.exists()) {
+                    def layout = this.class.getResourceAsStream("/css/layout.css")
+                    css << layout.bytes
+                }
             }
         }
     }

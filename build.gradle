@@ -35,6 +35,10 @@ dependencies {
     deployment 'org.apache.maven.wagon:wagon-http:1.0-beta-2'
 }
 
+test {
+    systemProperties 'spec.output.dir': 'build/reports/specifications'
+}
+
 classes << {
 
     copy(){
